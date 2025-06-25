@@ -276,10 +276,43 @@
             transform: translateY(0);
         }
 
-        .content-section.blur-out {
-            filter: blur(10px);
-            opacity: 0;
-            transform: translateY(-50px);
+        .back-btn {
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(255, 0, 0, 0.2));
+            border: 2px solid rgba(255, 0, 0, 0.5);
+            color: #ff6666;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .back-btn:hover::before {
+            left: 100%;
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            transform: translateX(-5px) scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+            border-color: #ff0000;
         }
 
         .store-section::before {
@@ -441,7 +474,7 @@
     <div class="container">
         <header>
             <div class="logo">StrengthKits</div>
-            <div class="tagline">Fight Till The Death • Dominate The Arena</div>
+            <div class="tagline">Unleash Your Power • Dominate The Arena</div>
         </header>
 
         <div class="nav-tabs">
@@ -466,33 +499,36 @@
         </div>
 
         <div class="content-section" id="store-content">
+            <div style="margin-bottom: 30px;">
+                <button class="back-btn" onclick="switchTab('home')">← Back to Home</button>
+            </div>
             <h2 style="text-align: center; font-size: 3rem; margin-bottom: 40px; color: #ff3333; text-shadow: 0 0 30px #ff0000;">🛒 POWER STORE</h2>
             <div class="store-grid">
                 <div class="store-item">
                     <h4>👑 VIP</h4>
-                    <p>Not Finished</p>
+                    <p>Exclusive perks, priority queue, and red chat color</p>
                     <div class="price">$4.99</div>
                     <button class="buy-btn" onclick="showComingSoon()">Purchase</button>
                 </div>
 
                 <div class="store-item">
                     <h4>⭐ VIP+</h4>
-                    <p>Not Finished</p>
+                    <p>All VIP perks + special commands and enhanced permissions</p>
                     <div class="price">$8.99</div>
                     <button class="buy-btn" onclick="showComingSoon()">Purchase</button>
                 </div>
 
                 <div class="store-item">
-                    <h4>🌟 Hero</h4>
-                    <p>Not Finished</p>
+                    <h4>🔥 Legend</h4>
+                    <p>Premium rank with mythic gear, private areas, and golden prefix</p>
                     <div class="price">$14.99</div>
                     <button class="buy-btn" onclick="showComingSoon()">Purchase</button>
                 </div>
 
                 <div class="store-item">
-                    <h4>🌟 Legend</h4>
-                    <p>Not Finished</p>
-                    <div class="price">$20.00</div>
+                    <h4>🌟 Hero</h4>
+                    <p>Ultimate rank with god-tier items, admin commands, and custom prefix</p>
+                    <div class="price">$24.99</div>
                     <button class="buy-btn" onclick="showComingSoon()">Purchase</button>
                 </div>
             </div>
